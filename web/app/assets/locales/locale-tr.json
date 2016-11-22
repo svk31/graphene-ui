@@ -30,6 +30,9 @@
   "propose": "Teklif Et",
   "cancel": "İptal",
   "account": {
+    "api_server": "API Sunucusu",
+    "bittrex_scam": "Bu adres Bittrex'in gerçek adresi değildir. Lütfen alıcıyı bittrex-deposit olarak değiştirin.",
+    "estimate_value": "Toplam hesap değeri (yaklaşık):",
     "welcome": "Bitshares'e Hoşgeldiniz",
     "asset": "Dijital Varlık",
     "market_value": "Piyasa Değeri",
@@ -68,6 +71,7 @@
       "explain": "Bekletilen bakiyeler tavsiye programlarından yada geliştirici ödemelerinden elde edilen geilrleri kapsar. Bunların belli bir bekleme süreleri vardır, fonların tümü müsait olana kadar  belli aralıklarla bu bakiyelerin bir kısmı serbest bırakılır."
     },
     "member": {
+      "claim_all": "Tamamını çek",
       "stats": "Üyelik Bilgileri",
       "join": "Katılma tarihi",
       "registrar": "Kaydı yapan",
@@ -257,6 +261,7 @@
     "payees": "Alıcılar",
     "permissions": "İzinler",
     "voting": "Seçimler",
+    "wallet_options": "Cüzdan Ayarları",
     "orders": "Emirler",
     "select_placeholder": "Hesap Seç...",
     "errors": {
@@ -270,6 +275,7 @@
     "no_price": "Fiyat mevcut değil",
     "percent": "Toplam arzın yüzdesi",
     "please_create_account": "Lütfen bir hesap oluşturun",
+    "polo_scam": "Bu hesap Poloniex'e ait değildir. Lütfen alıcıyı poloniexwallet olarak değiştirin.",
     "create_account": "Hesap oluştur",
     "create_new": "Yeni Hesap Oluştur",
     "identicon": "Hesap logosu",
@@ -295,6 +301,7 @@
     "pay_from": "Ödeyen hesap",
     "amount": "Miktar",
     "to": "Alıcı",
+    "header": "Transfer detayları",
     "memo": "Açıklama",
     "warn_name_unable_read_memo": "Uyarı: %(name)s bu memoyu okuyamayacaktır",
     "fee": "Ücret",
@@ -322,6 +329,7 @@
   "operation": {
     "pending": "%(blocks)s blok sonra tam onaylı.",
     "no_recent": "Yeni işlem yok",
+    "override_transfer": "{issuer}, {amount} miktarda dijital varlığı {from} adresinden {to} adresine aktardı.",
     "reg_account": "{registrar} kayıt yaptırdı - yeni hesap: {new_account}",
     "transfer": "{from} {amount} gönderdi - alan hesap: {to}",
     "proposal_create": "{account} bir işlem teklifi oluşturdu",
@@ -380,6 +388,11 @@
     "approve": "Onayla",
     "reject": "Reddet"
   },
+  "sync_fail": {
+     "sub_text_1": "Lütfen bilgisayarınızın saat ayarını kontrol edin.",
+     "sub_text_2": "Saat ayarının doğru olduğuna emin olduktan sonra bu sayfayı yenileyebilirsiniz. Bilgisayar saati doğru olduğu halde bu uyarıyı alıyorsanız, saati 5 dakika ileri ve geri almayı deneyin, ve bu sayfayı yenileyin. Cüzdanınıza erişimi sağladıktan sonra saati tekrar normale alabilirsiniz. Eğer hala bu uyarıyı alıyorsanız lütfen destek birimimizle irtibata geçin.",
+     "title": "API sunucusu bağlantısı yok."
+    },
   "transaction": {
     "confirm": "Lütfen işlemi teyit et",
     "broadcast_success": "İşlem yayınlandı",
@@ -418,6 +431,7 @@
     "file_write": "Dosya oluşturuldu.",
     "vesting_balance_create": "Bekletilen bakiyesi oluşturulan hesap:",
     "for": "için",
+    "waiting": "Onay bekleniyor...",
     "bond_create_offer": "Senet teklifi oluştur.",
     "bond_cancel_offer": "Senet teklifini iptal etti.",
     "bond_accept_offer": "Kabul edilen senet teklifi:",
@@ -520,7 +534,8 @@
   },
   "explorer": {
     "accounts": {
-      "title": "Hesaplar"
+      "title": "Hesaplar",
+      "filter": "Ara"
     },
     "blocks": {
       "title": "Blokzinciri",
@@ -780,6 +795,53 @@
     "preferred": "Piyasalarım"
   },
   "wallet": {
+    "account_create_wallet_text": "Bu şifre yeni bir Bitshares cüzdanı oluşturmak için kullanılacak ve tarayıcınızda saklanacaktır. Cüzdanınızı yedeklerseniz, bu şifre ile birlikte başka bilgisayarlardan ve tarayıcılardan cüzdanınıza ulaşabilirsiniz.",
+    "all_set": "İşleminiz başarıyla tamamlandı!",
+    "backup_explain": "Aşağıdaki butona tıkladığınızda .bin uzantılı bir yedekleme dosyası oluşturulacaktır. Bu dosya, cüzdan şifreniz ile şifrelenmiştir, ve kendi şifreniz ile birlikte kullanıldığında cüzdanınıza tam erişim sağlar. Yedekleme dosyasını cüzdanınızı başka bir tarayıcı ya da bilgisayara taşımak için de kullanabilirsiniz.",
+    "backup_new_account": "Congratulations, you've just created a new account! It is strongly recommended that you make a backup of your wallet now. Without a backup there is no way to restore your account if something happens to your computer.",
+    "brainkey_backed_up": "TekAnahtar en son şu tarihte yedeklendi:",
+    "brainkey_not_backed_up": "TekAnahtar daha önce hiç yedeklenmemiş.",
+    "bts_09_export": "BTS 0.9.3c yedek anahtar dosyası (.json)",
+    "change_backup": "Şifrenizi değiştirdiğiniz için cüzdanınızı yeniden yedeklemeniz gerekmektedir.",
+    "change_success": "Şifre değiştirildi!",
+    "claim_later": "Yedeklenmiş cüzdanınızı aktardıktan sonra bu bakiyeler kullanılabilir olacaktır.",
+    "congrat": "Tebrikler!",
+    "create_a": "Yeni bir hesap oluşturun",
+    "create_importkeys_text": "Özel anahtarınızı aktarmak için öncelikle bir cüzdan oluşturmalısınız, bunun için lütfen aşağıdaki formu doldurun.",
+    "create_success": "Tebrikler! Hesabınız oluşturuldu.",
+    "create_text": "Bitshares cüzdanınız tamamen kendi bilgisayarınızda tutulur ve cüzdan bilgileriniz ya da şifreniz siz paylaşmadığınız sürece kimseyle paylaşılmaz.",
+    "create_w_a": "Basd",
+    "create_wallet_backup": "Yedeklenmiş cüzdanı aktar.",
+    "delete_confirm_line4": "Evet, şu cüzdanı silmek istiyorum: %(name)s",
+    "has_wallet": "Bitshares hesabı açtığınızda cüzdanınızdaki her şeyin sorumluluğu tamamen size aittir. Bir başka kişi sizin cüzdanınızı kontrol edemez. Cüzdana erişim için gerekli olan TekAnahtar bilgisayarınızda şifreli olarak saklanır.",
+    "create_account_text": "Hesabınıza ait TekAnahtarı ya da şifrenizi unutmanız durumunda hesabınıza erişmenin hiçbir yolu yoktur. Bu yüzden, size bir sonraki adımda verilecek olan TekAnahtarı yazıp güvenli bir yerde saklamalı ve bu bilgileri hiçkimse ile paylaşmamalısınız.",
+    "first_account_paid": "TekAnahtarınızı veya şifrenizi güvende tutmazsanız, bilgisayarınızda oluşacak herhangi bir sorun ya da güncelleme nedeniyle cüzdanınıza erişimi kaybedebilirsiniz. Bu durumda cüzdanınızdaki dijital varlıkları geri getirmenin hiçbir yolu yoktur.",
+    "import_backup_choose": "Lütfen yedekleme dosyasını seçin. Bu işlem esnasında dosya kendi bilgisayarınızdan dışarıya asla aktarılmaz, bütün işlem bilgisayarınızda gerçekleşir.",
+    "import_balance": "Bakiyeyi aktar.",
+    "import_key_success": "İşleminiz başarıyla tamamlandı!",
+    "import_pass_match": "Şifreler uyuşuyor. Cüzdanınız açılırken lütfen bekleyin...",
+    "import_password": "Lütfen şifrenizi girin",
+    "import_private_key": "Özel anahtar aktarma",
+    "link_account": "Hesabım",
+    "link_deposit": "Yatırma işlemleri",
+    "link_transfer": "Transferler",
+    "must_be_ltm": "Bu işlem için ücreti ödeyen hesap asil üye olmalıdır.",
+    "new_confirm": "Yeni şifreyi onayla",
+    "new_password": "Yeni şifre",
+    "paste_private": "Özel anahtarı buraya kopyalayın (WIF formatında)",
+    "restore": "Yedeklenmiş cüzdanı aktar",
+    "step_1": "1. Adım - Kayıt",
+    "step_2": "2. Adım - Güvenlik",
+    "step_3": "3. Adım - Artık hazırsınız!",
+    "submit": "Gönder",
+    "totals": "Asset Totals",
+    "tips_transfer": "Make a transfer",
+    "wallet_browser": "Kendi cüzdanınız, kendi hesabınız",
+    "wallet_crucial": "Kural 1: TekAnahtar ve şifrenizi asla kaybetmeyin.<br/>Kural 2: TekAnahtar ve şifrenizi ASLA kaybetmeyin.<br/>Kural 3: TekAnahtar ya da şifrenizi kaybederseniz cüzdanınızı kurtarmanın HİÇBİR YOLU yoktur.<br/>Kural 4: TekAnahtar ve şifrenizi güvende tutun.<br/>Kural 5: TekAnahtar ve şifrenizi kimseyle paylaşmayın.",
+    "wallet_lose_warning": "",
+    "wallet_move": "TekAnahtar ve şifrenizle, hesabınızı başka bilgisayarlarda da kullanabilirsiniz. TekAnahtar ve şifreniz sizin bilgisayarınızdadır ve bu bilgileri şu an bu ekrana bakan kişiler hariç hiçkimse görmez!",
+    "wallet_new": "Bitshares'e Hoş Geldiniz",
+    "import_bts": "Import a BTS 0.9.3c key export",
     "title": "Cüzdan",
     "confirm": "Parola (teyit)",
     "password": "Parola",
@@ -801,7 +863,7 @@
     "create": "Oluştur",
     "console": "Cüzdan Yönetim Paneli",
     "create_backup": "Yedek Oluştur",
-    "backup_brainkey": "Beyin-anahtarı Yedekle",
+    "backup_brainkey": "TekAnahtar Yedekle",
     "create_backup_of": "%(name)s Adlı Cüzdanı Yedekle",
     "import_backup": "Yedeği İçeri Aktar",
     "restore_backup": "Yedekten Geri Yükle",
@@ -812,7 +874,7 @@
     "active_wallet": "Etkin Cüzdan",
     "verified": "Doğrulanmış",
     "verify_prior_backup": "Yedeklemeden Önce Doğrula",
-    "brainkey_not_verified": "Bu Beyin-anahtarı teyit edilmemiş",
+    "brainkey_not_verified": "Bu TekAnahtar doğrulanmamış",
     "cancel": "İptal",
     "reset": "Sıfırla",
     "done": "Tamam",
@@ -840,16 +902,16 @@
     "no_accounts": "Hesap Yok",
     "brainkey_no_match": "TekAnahtar uyuşmuyor, devam et",
     "reenter_brainkey": "TekAnahtarı tekrar gir",
-    "pwd4brainkey": "Beyin-anahtarını göstermek için parolayı gir",
-    "show_brainkey": "Beyin Anahtarını Göster",
+    "pwd4brainkey": "TekAnahtarı göstermek için parolayı gir",
+    "show_brainkey": "TekAnahtarı Göster",
     "brainkey_w1": "UYARI : Bunu bir kağıda yazın yada çıktı alın.",
     "brainkey_w2": "Kurtarma anahtarınıza ulaşan herhangi bir kimse",
     "brainkey_w3": "bu cüzdan içindeki fonlara ulaşabilir.",
     "custom_brainkey": "Kişiye Özel TekAnahtar (gelişmiş)",
     "last_backup": "Son yedekleme",
-    "never_backed_up": "Bu cüzdan hiç yedeklenmedi",
-    "need_backup": "Bu cüzdanın yedeklenmesi gerek",
-    "noneed_backup": "Yedekleme gerekmiyor"
+    "never_backed_up": "Bu cüzdan hiç yedeklenmedi.",
+    "need_backup": "KURALLAR",
+    "noneed_backup": "Cüzdanınız daha önceden yedeklenmiş görünüyor."
   },
   "borrow": {
     "title": "%(asset_symbol)s Marjin",
@@ -865,6 +927,11 @@
     }
   },
   "modal": {
+    "confirmation": {
+      "accept": "Onayla",
+      "cancel": "İptal",
+      "title": "Geçerli bir adres girmediniz. Yine de devam etmek isterseniz bakiyenizi kaybetme riskiniz bulunmaktadır."
+    },
     "issue": {
       "to": "Bu hesaba ihraç",
       "amount": "Çıkarılacak miktar",
@@ -915,6 +982,9 @@
     "fee_paying_account": "Ücreti ödeyen hesap"
   },
   "gateway": {
+    "bitkapital_receive": "Vermiş olduğunuz banka hesabınıza yatacak miktar",
+    "bitkapital_text": "Lütfen yatırmak ya da çekmek istediğiniz enstrümanı seçin.",
+    "bitkapital_withdraw": "Satılan miktar",
     "bridge": "Köprü",
     "gateway": "Geçit",
     "symbol": "Sembol",
@@ -944,6 +1014,7 @@
     "intermediate": "Aracı hesap",
     "asset_to_withdraw": "Çekilecek dijital varlık:",
     "support_block": "Destek için, lütfen Blocktrades'e şuradan ulaşın:",
+    "service": "Transfer Hizmet Sağlayıcısı",
     "valid_address": "Lütfen geçerli bir  %(coin_type)s adresi giriniz",
     "withdraw_coin": " %(coin)s (%(symbol)s) çekiniz",
     "limit": "Sınır: %(amount)s %(symbol)s",
@@ -969,6 +1040,8 @@
     "send": "Gönder",
     "color": "Kullanıcı rengi",
     "user": "Kullanıcı adı",
+    "disabled": "Sohbet etkin değil",
+    "enable": "Etkin hale getir",
     "done": "Tamam",
     "reconnect": "Tekrar bağlan",
     "welcome_user": "Bitshares'e Hoşgeldiniz",
