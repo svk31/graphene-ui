@@ -128,7 +128,7 @@ export default class BitKapital extends React.Component {
             return (
                 <iframe
                     style={{width: "100%", minHeight: 800}}
-                    src={"https://bitkapital.com/kayit.html&account=" + account.get("name")}
+                    src={"https://www.123contactform.com/sf.php?s=123contactform-2315816&control23748168=" + account.get("name")}
                 >
                 </iframe>
             );
