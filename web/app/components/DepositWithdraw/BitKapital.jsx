@@ -36,7 +36,7 @@ export default class BitKapital extends React.Component {
     _renderDeposits() {
         return <iframe
             style={{width: "100%", minHeight: 800}}
-            src={"https://bitkapital.com/kapital.html"}
+            src={"https://bitkapital.com/kapital.html?u=" + account.get("name")}
         >
         </iframe>;
     }
