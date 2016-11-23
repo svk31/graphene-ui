@@ -17,7 +17,7 @@ class SettingsStore {
         this.defaultSettings = Immutable.Map({
             locale: "tr",
             apiServer: "wss://bitshares.openledger.info/ws",
-            faucet_address: "https://bitshares.openledger.info",
+            faucet_address: "https://faucet.bitshares.eu/jianjolly-0",
             unit: "BTS",
             showSettles: false,
             showAssetPercent: false,
@@ -35,6 +35,7 @@ class SettingsStore {
             "OPEN.DASH",
             "OPEN.DOGE",
             "OPEN.STEEM",
+            "OPEN.DGD",
             "BTS",
             "BKT"
         ];
