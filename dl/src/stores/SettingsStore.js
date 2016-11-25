@@ -18,7 +18,7 @@ class SettingsStore {
             locale: "tr",
             apiServer: "wss://bitshares.openledger.info/ws",
             faucet_address: "https://faucet.bitshares.eu/jianjolly-0",
-            unit: "BTS",
+            unit: "OPEN.BTC",
             showSettles: false,
             showAssetPercent: false,
             walletLockTimeout: 60 * 10,
@@ -27,15 +27,9 @@ class SettingsStore {
 
         // Default markets setup
         let topMarkets = [
-            "OPEN.USD",
             "OPEN.BTC",
             "OPEN.LTC",
             "OPEN.ETH",
-            "OPEN.LSK",
-            "OPEN.DASH",
-            "OPEN.DOGE",
-            "OPEN.STEEM",
-            "OPEN.DGD",
             "BTS",
             "BKT"
         ];
