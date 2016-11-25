@@ -275,9 +275,11 @@ class CreateAccount extends React.Component {
     }
 
     _onBackupDownload = () => {
-        this.setState({
-            step: 3
-        });
+        // this.setState({
+        //     step: 3
+        // });
+
+        this.props.history.pushState(null, "/market/KAPITAL_OPEN.BTC");
     }
 
     _renderBackupText() {
