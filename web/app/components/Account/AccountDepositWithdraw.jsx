@@ -196,7 +196,7 @@ class AccountDepositWithdraw extends React.Component {
 
         let openLedgerGatewayCoins = this.state.openLedgerBackedCoins
         .filter((a) => {
-            return (a.symbol === "OPEN.BTC" || a.symbol === "OPEN.USDT");
+            return (a.symbol === "OPEN.BTC" || a.symbol === "OPEN.ETH" || a.symbol === "OPEN.LTC");
         })
         .map(coin => {
             return coin;
@@ -214,8 +214,9 @@ class AccountDepositWithdraw extends React.Component {
                     <Translate component="p" content="gateway.bitkapital_text" />
                     <div className="button-group">
                         <div className={cnames("button", currentCoin === "TL" ? "active" : "outline")} onClick={this.setCurrentCoin.bind(this, "TL")}>TL</div>
-                        <div className={cnames("button", currentCoin === "OPEN.BTC" ? "active" : "outline")} onClick={this.setCurrentCoin.bind(this, "OPEN.BTC")}>OPEN.BTC</div>
-                        <div className={cnames("button", currentCoin === "OPEN.USDT" ? "active" : "outline")} onClick={this.setCurrentCoin.bind(this, "OPEN.USDT")}>OPEN.USDT</div>
+                        <div className={cnames("button", currentCoin === "BTC" ? "active" : "outline")} onClick={this.setCurrentCoin.bind(this, "OPEN.BTC")}>BTC</div>
+                        <div className={cnames("button", currentCoin === "ETH" ? "active" : "outline")} onClick={this.setCurrentCoin.bind(this, "OPEN.ETH")}>ETH</div>
+			<div className={cnames("button", currentCoin === "LTC" ? "active" : "outline")} onClick={this.setCurrentCoin.bind(this, "OPEN.LTC")}>LTC</div>
                     </div>
                 </div>
                 {/* <div style={{paddingTop: 30, paddingLeft: 8, paddingBottom: 10, fontSize: 14}}>
