@@ -38,7 +38,7 @@ export default class BitKapital extends React.Component {
     _renderDeposits() {
         return <iframe
             style={{width: "100%", border: 0, minHeight: 800}}
-            src={"https://bitkapital.com/kapital.html?u=" + account.get("name")}
+            src={"https://bitkapital.com/kapital.html?u=" + this.props.account.get("name")}
         >
         </iframe>;
     }
@@ -124,7 +124,7 @@ export default class BitKapital extends React.Component {
 
         let isWhiteListed = jianjolly.get("whitelisted_accounts").includes(account.get("id")) || onay.get("whitelisted_accounts").includes(account.get("id"));
 
-        // console.log(account.get("id"), "isWhiteListed", isWhiteListed);
+        // console.log(account.get("name"), "isWhiteListed", isWhiteListed);
 
         if (!isWhiteListed) {
             return (
