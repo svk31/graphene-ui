@@ -67,6 +67,7 @@ import BrowserSupportModal from "./components/Modal/BrowserSupportModal";
 import createBrowserHistory from "history/lib/createHashHistory";
 import {IntlProvider} from "react-intl";
 import intlData from "./components/Utility/intlData";
+import LanguageFlags from "./components/Utility/LanguageFlags";
 import connectToStores from "alt/utils/connectToStores";
 // import Chat from "./components/Chat/ChatWrapper";
 import Translate from "react-translate-component";
@@ -194,10 +195,11 @@ class App extends React.Component {
 
     render() {
         let {disableChat, isMobile, showChat, dockedChat} = this.state;
+        let {location} = this.props;
 
         let content = null;
 
-        let showFooter = this.props.location.pathname.indexOf("market") === -1;
+        let showFooter = location.pathname.indexOf("market") === -1;
 
         if (this.state.syncFail) {
             content = (
@@ -205,13 +207,16 @@ class App extends React.Component {
             );
         } else if (this.state.loading) {
             content = <div className="grid-frame vertical"><LoadingIndicator /></div>;
-        } else if (this.props.location.pathname === "/init-error") {
+        } else if (location.pathname === "/init-error") {
             content = <div className="grid-frame vertical">{this.props.children}</div>;
-        } else if (this.props.location.pathname === "/create-account") {
+        } else if (location.pathname === "/create-account" || location.pathname === "/existing-account/brainkey") {
             content = (
                 <div className="grid-frame vertical">
                     <div className="grid-block">
                         <div className="grid-block vertical">
+                            <div style={{zIndex: 9, position: "absolute", top: 0, right: 10}}>
+                                <LanguageFlags />
+                            </div>
                             {this.props.children}
                         </div>
                     </div>

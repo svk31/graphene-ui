@@ -15,7 +15,6 @@ import TransactionConfirmStore from "stores/TransactionConfirmStore";
 import LoadingIndicator from "../LoadingIndicator";
 import WalletActions from "actions/WalletActions";
 import Translate from "react-translate-component";
-import LanguageFlags from "../Utility/LanguageFlags";
 // import RefcodeInput from "../Forms/RefcodeInput";
 import {ChainStore, FetchChain} from "graphenejs-lib";
 import {BackupCreate} from "../Wallet/Backup";
@@ -352,7 +351,6 @@ class CreateAccount extends React.Component {
 
         return (
             <div className="grid-block vertical page-layout">
-                <div style={{position: "absolute", top: 0, right: 10}}><LanguageFlags /></div>
                 <div className="grid-container shrink">
                     <div style={{textAlign: "center", paddingTop: 20}}>
                         <Translate content="wallet.wallet_new" component="h2" />
