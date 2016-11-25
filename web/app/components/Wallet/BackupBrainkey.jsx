@@ -92,6 +92,9 @@ export default class BackupBrainkey extends Component {
     onComplete(brnkey) {
         this.setState({ verified: true });
         WalletActions.setBrainkeyBackupDate();
+        if (this.props.onBackupComplete) {
+            this.props.onBackupComplete();
+        }
     }
 
     reset(e) {

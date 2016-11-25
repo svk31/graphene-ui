@@ -18,6 +18,8 @@ import Translate from "react-translate-component";
 // import RefcodeInput from "../Forms/RefcodeInput";
 import {ChainStore, FetchChain} from "graphenejs-lib";
 import {BackupCreate} from "../Wallet/Backup";
+import BackupBrainkey from "../Wallet/BackupBrainkey";
+
 
 @connectToStores
 class CreateAccount extends React.Component {
@@ -269,7 +271,8 @@ class CreateAccount extends React.Component {
     _renderBackup() {
         return (
             <div>
-                <BackupCreate noText downloadCb={this._onBackupDownload}/>
+                <BackupBrainkey onBackupComplete={this._onBackupDownload}/>
+                {/* <BackupCreate noText downloadCb={this._onBackupDownload}/> */}
             </div>
         );
     }
@@ -350,6 +353,7 @@ class CreateAccount extends React.Component {
         let {step} = this.state;
         let my_accounts = AccountStore.getMyAccounts();
         let firstAccount = my_accounts.length === 0;
+        // step =2;
 
         return (
             <div className="grid-block vertical page-layout">
