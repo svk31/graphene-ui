@@ -126,7 +126,11 @@ class CreateNewWallet extends Component {
     }
 
     onDone() {
-        window.history.back()
+        if (window.electron) {
+            window.location.hash = "";
+            window.remote.getCurrentWindow().reload();
+        }
+        else window.location.href = "/";
     }
 
     render() {
