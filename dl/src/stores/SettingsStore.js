@@ -27,15 +27,9 @@ class SettingsStore {
 
         // Default markets setup
         let topMarkets = [
-            "OPEN.USD",
             "OPEN.BTC",
             "OPEN.LTC",
             "OPEN.ETH",
-            "OPEN.LSK",
-            "OPEN.DASH",
-            "OPEN.DOGE",
-            "OPEN.STEEM",
-            "OPEN.DGD",
             "BTS",
             "BKT"
         ];
