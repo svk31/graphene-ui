@@ -46,7 +46,7 @@ import NotificationSystem from "react-notification-system";
 import NotificationStore from "stores/NotificationStore";
 import iDB from "idb-instance";
 import ExistingAccount, {ExistingAccountOptions} from "./components/Wallet/ExistingAccount";
-import WalletCreate from "./components/Wallet/WalletCreate";
+import WalletCreate, {BrainkeyWrapper} from "./components/Wallet/WalletCreate";
 import ImportKeys from "./components/Wallet/ImportKeys";
 import WalletDb from "stores/WalletDb";
 import PrivateKeyActions from "actions/PrivateKeyActions";
@@ -408,7 +408,7 @@ let routes = (
             <IndexRoute component={BackupRestore}/>
             <Route path="import-backup" component={ExistingAccountOptions}/>
             <Route path="import-keys" component={ImportKeys}/>
-            <Route path="brainkey" component={Brainkey}/>
+            <Route path="brainkey" component={BrainkeyWrapper}/>
             <Route path="balance-claim" component={BalanceClaimActive}/>
         </Route>
         <Route path="/account/:account_name" component={AccountPage}>

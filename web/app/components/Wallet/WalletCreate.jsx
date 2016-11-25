@@ -159,7 +159,7 @@ class CreateNewWallet extends Component {
                     }}
                 >
                     {!this.props.restoreBrainkey ? <Translate component="p" content="wallet.create_importkeys_text" /> : null}
-                    {!this.props.restoreBrainkey ? <Translate component="p" content="wallet.create_text" /> : null}                    
+                    {!this.props.restoreBrainkey ? <Translate component="p" content="wallet.create_text" /> : null}
                 </div>
                 <PasswordConfirm onValid={this.onPassword.bind(this)}/>
                 { has_wallet ? (
@@ -215,4 +215,10 @@ class CreateNewWallet extends Component {
 
 }
 
-export default WalletCreate
+export class BrainkeyWrapper extends React.Component {
+    render() {
+        return <WalletCreate restoreBrainkey />;
+    }
+}
+
+export default WalletCreate;
