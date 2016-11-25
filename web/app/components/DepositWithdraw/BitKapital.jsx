@@ -13,6 +13,7 @@ export default class BitKapital extends React.Component {
 
     static propTypes = {
         jianjolly: ChainTypes.ChainAccount.isRequired,
+        onay: ChainTypes.ChainAccount.isRequired,
         bitKapital: ChainTypes.ChainAccount.isRequired,
         asset: ChainTypes.ChainAsset.isRequired
     };
@@ -117,7 +118,7 @@ export default class BitKapital extends React.Component {
 
 
     render() {
-        let {jianjolly, account, asset} = this.props;
+        let {jianjolly, onay, account, asset} = this.props;
         let {action} = this.state;
         // console.log("jianjolly:", jianjolly.toJS(), "asset:", asset.toJS());
 
