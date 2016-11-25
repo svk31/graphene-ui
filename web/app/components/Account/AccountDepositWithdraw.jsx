@@ -207,8 +207,8 @@ class AccountDepositWithdraw extends React.Component {
         return (
 		<div className={this.props.contained ? "grid-content" : "grid-container"}>
             <div className={this.props.contained ? "" : "grid-content"}>
-                <div style={{borderBottom: "2px solid #444"}}>
-                    <HelpContent path="components/DepositWithdraw" section="receive" account={account.get("name")}/>
+                <div style={{borderBottom: "2px solid #444", paddingTop: 40}}>
+                    {/* <HelpContent path="components/DepositWithdraw" section="receive" account={account.get("name")}/> */}
                     {/* <HelpContent path="components/DepositWithdraw" section="deposit-short"/> */}
 
                     <Translate component="p" content="gateway.bitkapital_text" />
