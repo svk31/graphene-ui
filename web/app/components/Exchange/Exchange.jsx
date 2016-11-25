@@ -1382,6 +1382,10 @@ class Exchange extends React.Component {
             />
         );
 
+        let noStar = !!this.props.defaultMarkets.find(a => {
+            return a[0] === (quoteSymbol + "_" + baseSymbol);
+        });
+
         return (
                 <div className="grid-block page-layout market-layout">
                     <AccountNotifications/>
@@ -1401,9 +1405,9 @@ class Exchange extends React.Component {
                         <div className="grid-block no-padding shrink overflow-visible top-bar">
                             <div className="grid-block no-overflow">
                                 <div className="grid-block shrink" style={{borderRight: "1px solid grey"}}>
-                                    <span style={{paddingRight: 0}} onClick={this._addMarket.bind(this, quoteAsset.get("symbol"), baseAsset.get("symbol"))} className="market-symbol">
+                                    {noStar ? null : <span style={{paddingRight: 0}} onClick={this._addMarket.bind(this, quoteAsset.get("symbol"), baseAsset.get("symbol"))} className="market-symbol">
                                         <Icon className={starClass} name="fi-star"/>
-                                    </span>
+                                    </span>}
                                     {!hasPrediction ? (
                                         <span className="market-symbol">
                                             <span><AssetName name={quoteSymbol} replace={true} /> : <AssetName name={baseSymbol} replace={true} /></span>
@@ -1674,6 +1678,7 @@ class Exchange extends React.Component {
                                     ]
                                 }
                                 current={marketID}
+                                defaultMarkets={this.props.defaultMarkets}
                             />
                         </div>
                         <div className="grid-block no-padding no-margin vertical shrink">

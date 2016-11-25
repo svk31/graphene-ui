@@ -141,6 +141,7 @@ class MarketGroup extends React.Component {
             .map(market => {
                 return (
                     <MarketRow
+                        defaultMarkets={this.props.defaultMarkets}
                         key={market.id}
                         name={base === "others" ? <span><AssetName name={market.quote} />:<AssetName name={market.base} /></span> : <AssetName name={market.quote} />}
                         quote={market.quote}
@@ -603,6 +604,7 @@ class MyMarkets extends React.Component {
 
                     {preferredBases.filter(a => {return a === preferredBases.get(this.state.activeMarketTab);}).map((base, index) => {
                         return <MarketGroup
+                            defaultMarkets={this.props.defaultMarkets}
                             index={index}
                             allowChange={false}
                             key={base}
@@ -619,6 +621,7 @@ class MyMarkets extends React.Component {
                     })}
                     {this.state.activeMarketTab === preferredBases.size + 1 ?
                     <MarketGroup
+                        defaultMarkets={this.props.defaultMarkets}
                         index={preferredBases.size}
                         current={current}
                         starredMarkets={starredMarkets}

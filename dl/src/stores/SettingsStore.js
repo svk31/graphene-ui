@@ -51,6 +51,8 @@ class SettingsStore {
             addMarkets(defaultMarkets, base, topMarkets);
         });
 
+        this.defaultMarkets = defaultMarkets;
+
         // If you want a default value to be translated, add the translation to settings in locale-xx.js
         // and use an object {translate: key} in the defaults array
         let apiServer = [

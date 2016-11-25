@@ -60,6 +60,17 @@ class MarketRow extends React.Component {
         }
     }
 
+    _hasStar(market) {
+        if (!this.props.defaultMarkets) {
+            return true;
+        }
+
+        return !this.props.defaultMarkets.find(a => {
+            return a[0] === (market);
+        });
+    }
+
+
     render() {
         let {quote, base, noSymbols, stats, starred} = this.props;
 
@@ -90,9 +101,10 @@ class MarketRow extends React.Component {
             switch (column.name) {
             case "star":
                 let starClass = starred ? "gold-star" : "grey-star";
+                let hasStar = this._hasStar(marketID);
                 return (
-                    <td onClick={this._onStar.bind(this, quote.get("symbol"), base.get("symbol"))} key={column.index}>
-                        <Icon className={starClass} name="fi-star"/>
+                    <td style={!hasStar ? {paddingTop: 24} : null} onClick={this._onStar.bind(this, quote.get("symbol"), base.get("symbol"))} key={column.index}>
+                        {hasStar ? <Icon className={starClass} name="fi-star"/> : null}
                     </td>
                 );
 
