@@ -20,7 +20,7 @@ export default class BitKapital extends React.Component {
     static defaultProps = {
         jianjolly: "1.2.126253", // "jianjolly-0",
         bitKapital: "1.2.130090",
-        onay: "1.2.139289" // bitkapital dedicated whitelist management account
+        onay: "1.2.139289", // bitkapital dedicated whitelist management account
         asset: "KAPITAL"
     };
 
