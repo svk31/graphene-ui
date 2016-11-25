@@ -279,7 +279,7 @@ class CreateAccount extends React.Component {
         //     step: 3
         // });
 
-        this.props.history.pushState(null, "/market/KAPITAL_OPEN.BTC");
+        this.props.history.pushState(null, "/market/OPEN.BTC_KAPITAL");
     }
 
     _renderBackupText() {
