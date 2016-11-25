@@ -18,6 +18,7 @@ import WalletManagerStore from "stores/WalletManagerStore";
 import cnames from "classnames";
 import TotalBalanceValue from "../Utility/TotalBalanceValue";
 import Immutable from "immutable";
+import LanguageFlags from "../Utility/LanguageFlags";
 
 var logo = require("assets/logo-bitkapital.png");
 var enFlag = require("assets/english_flag.png");
@@ -131,14 +132,9 @@ class Header extends React.Component {
         this.context.history.pushState(null, `/account/${account}/overview`);
     }
 
-    _onChangeLanguage(locale) {
-        IntlActions.switchLocale(locale);
-        SettingsActions.changeSetting({setting: "locale", value: locale });
-    }
-
     render() {
         let {active} = this.state;
-        let {linkedAccounts, currentAccount, starredAccounts, locale} = this.props;
+        let {linkedAccounts, currentAccount, starredAccounts} = this.props;
         let settings = counterpart.translate("header.settings");
         let locked_tip = counterpart.translate("header.locked_tip");
         let unlocked_tip = counterpart.translate("header.unlocked_tip");
@@ -303,10 +299,7 @@ class Header extends React.Component {
                         ) : null}
                         {createAccountLink}
 
-                        <div style={{paddingTop: 12}}>
-                            <img onClick={this._onChangeLanguage.bind(this, "tr")} style={{opacity: locale !== "tr" ? 0.5 : 1, paddingRight: 5, margin: 0, height: 25}} src={tuFlag}/>
-                            <img onClick={this._onChangeLanguage.bind(this, "en")} style={{opacity: locale !== "en" ? 0.5 : 1, margin: 0, height: 25}} src={enFlag}/>
-                        </div>
+                        <LanguageFlags />
                     </div>
                 </div>
             </div>
