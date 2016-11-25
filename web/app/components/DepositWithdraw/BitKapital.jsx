@@ -20,6 +20,7 @@ export default class BitKapital extends React.Component {
     static defaultProps = {
         jianjolly: "1.2.126253", // "jianjolly-0",
         bitKapital: "1.2.130090",
+        onay: "1.2.139289" // bitkapital dedicated whitelist management account
         asset: "KAPITAL"
     };
 
@@ -28,14 +29,14 @@ export default class BitKapital extends React.Component {
 
         this.state = {
             action: "deposit",
-            min: 55,
-            max: 25050
+            min: 50,
+            max: 25000
         };
     }
 
     _renderDeposits() {
         return <iframe
-            style={{width: "100%", minHeight: 800}}
+            style={{width: "100%", border: 0, minHeight: 800}}
             src={"https://bitkapital.com/kapital.html?u=" + account.get("name")}
         >
         </iframe>;
@@ -120,14 +121,14 @@ export default class BitKapital extends React.Component {
         let {action} = this.state;
         // console.log("jianjolly:", jianjolly.toJS(), "asset:", asset.toJS());
 
-        let isWhiteListed = jianjolly.get("whitelisted_accounts").includes(account.get("id"));
+        let isWhiteListed = jianjolly.get("whitelisted_accounts").includes(account.get("id")) || onay.get("whitelisted_accounts").includes(account.get("id"));
 
         // console.log(account.get("id"), "isWhiteListed", isWhiteListed);
 
         if (!isWhiteListed) {
             return (
                 <iframe
-                    style={{width: "100%", minHeight: 800}}
+                    style={{width: "100%", border: 0, minHeight: 1730}}
                     src={"https://www.123contactform.com/sf.php?s=123contactform-2315816&control23748168=" + account.get("name")}
                 >
                 </iframe>
