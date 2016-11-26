@@ -76,7 +76,7 @@ class TransactionConfirm extends React.Component {
 
     _willReceive(op) {
         let asset = ChainStore.getAsset(op.amount.asset_id);
-        let precision = utils.get_asset_precision(asset.get("precision"));
+        let precision = 2; // the precision of Turkish lira in bank transfers
 
         return (op.amount.amount / precision) - Math.max(5, (op.amount.amount / precision) * 0.002);
     }
