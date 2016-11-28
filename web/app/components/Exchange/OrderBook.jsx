@@ -101,27 +101,28 @@ class OrderBook extends React.Component {
         this._updateHeight = this._updateHeight.bind(this);
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate(np, nextState) {
         return (
-            !Immutable.is(nextProps.orders, this.props.orders) ||
-            !Immutable.is(nextProps.calls, this.props.calls) ||
-            !Immutable.is(nextProps.calls, this.props.calls) ||
-            nextProps.horizontal !== this.props.horizontal ||
-            nextProps.latest !== this.props.latest ||
-            nextProps.smallScreen !== this.props.smallScreen ||
-            !utils.are_equal_shallow(nextState, this.state)
+            !Immutable.is(np.orders, this.props.orders) ||
+            !Immutable.is(np.calls, this.props.calls) ||
+            !Immutable.is(np.calls, this.props.calls) ||
+            np.horizontal !== this.props.horizontal ||
+            np.latest !== this.props.latest ||
+            np.smallScreen !== this.props.smallScreen ||
+            !utils.are_equal_shallow(nextState, this.state) ||
+            np.quote !== this.props.quote
         );
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (!nextProps.marketReady) {
+    componentWillReceiveProps(np) {
+        if (!np.marketReady) {
             this.setState({
                 scrollToBottom: true
             });
         }
 
         // Change of market or direction
-        if (nextProps.base !== this.props.base || nextProps.quote !== this.props.quote) {
+        if (np.base !== this.props.base || np.quote !== this.props.quote) {
             this.setState({
                 scrollToBottom: true
             });

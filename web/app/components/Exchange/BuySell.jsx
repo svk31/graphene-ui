@@ -25,19 +25,21 @@ class BuySell extends React.Component {
         type: "bid"
     };
 
-    shouldComponentUpdate(nextProps) {
+    shouldComponentUpdate(np) {
         return (
-                nextProps.amount !== this.props.amount ||
-                nextProps.total !== this.props.total ||
-                nextProps.currentPrice !== this.props.currentPrice ||
-                nextProps.price !== this.props.price ||
-                nextProps.balance !== this.props.balance ||
-                nextProps.account !== this.props.account ||
-                nextProps.className !== this.props.className ||
-                nextProps.fee !== this.props.fee ||
-                nextProps.isPredictionMarket !== this.props.isPredictionMarket ||
-                nextProps.feeAsset !== this.props.feeAsset ||
-                nextProps.isOpen !== this.props.isOpen
+                np.quote !== this.props.quote ||
+                np.base !== this.props.base ||
+                np.amount !== this.props.amount ||
+                np.total !== this.props.total ||
+                np.currentPrice !== this.props.currentPrice ||
+                np.price !== this.props.price ||
+                np.balance !== this.props.balance ||
+                np.account !== this.props.account ||
+                np.className !== this.props.className ||
+                np.fee !== this.props.fee ||
+                np.isPredictionMarket !== this.props.isPredictionMarket ||
+                np.feeAsset !== this.props.feeAsset ||
+                np.isOpen !== this.props.isOpen
             );
     }
 
