@@ -390,7 +390,7 @@
   },
   "sync_fail": {
      "sub_text_1": "Lütfen bilgisayarınızın saat ayarını kontrol edin.",
-     "sub_text_2": "Saat ayarının doğru olduğuna emin olduktan sonra bu sayfayı yenileyebilirsiniz. Bilgisayar saati doğru olduğu halde bu uyarıyı alıyorsanız, saati 5 dakika ileri ve geri almayı deneyin, ve bu sayfayı yenileyin. Cüzdanınıza erişimi sağladıktan sonra saati tekrar normale alabilirsiniz. Eğer hala bu uyarıyı alıyorsanız lütfen destek birimimizle irtibata geçin.",
+     "sub_text_2": "Saat ayarının doğru olduğuna emin olduktan sonra bu sayfayı yenileyebilirsiniz. Türkiye'nin kış saati uygulamasını kaldırması nedeniyle bu uyarıyı alıyor olabilirsiniz. Lütfen bilgisayarınızın saat dilimini \"GMT+3 (UTC+3) Nairobi\" ya da \"GMT+3 (UTC+3) İstanbul\" olarak değiştirin. Bilgisayar saati doğru olduğu halde bu uyarıyı alıyorsanız, saati 5 dakika ileri ve geri almayı deneyin, ve bu sayfayı yenileyin. Cüzdanınıza erişimi sağladıktan sonra saati tekrar normale alabilirsiniz. Eğer hala bu uyarıyı alıyorsanız lütfen destek birimimizle irtibata geçin.",
      "title": "API sunucusu bağlantısı yok."
     },
   "transaction": {
