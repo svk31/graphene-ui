@@ -472,18 +472,20 @@ class WalletDb extends BaseStore {
 
     setBackupDate() {
         var wallet = this.state.wallet
-        wallet.backup_date = new Date()
-        return this._updateWallet()
+        const backup_date = new Date();
+        wallet.backup_date = backup_date;
+        return this._updateWallet(undefined, backup_date)
     }
 
     setBrainkeyBackupDate() {
         var wallet = this.state.wallet
-        wallet.brainkey_backup_date = new Date()
-        return this._updateWallet()
+        const backup_date = new Date();
+        wallet.brainkey_backup_date = backup_date
+        return this._updateWallet(undefined, backup_date)
     }
 
     /** Saves wallet object to disk.  Always updates the last_modified date. */
-    _updateWallet(transaction = this.transaction_update()) {
+    _updateWallet(transaction = this.transaction_update(), last_modified = new Date()) {
         var wallet = this.state.wallet
         if ( ! wallet) {
             reject("missing wallet")
@@ -491,7 +493,7 @@ class WalletDb extends BaseStore {
         }
         //DEBUG console.log('... wallet',wallet)
         var wallet_clone = cloneDeep( wallet )
-        wallet_clone.last_modified = new Date()
+        wallet_clone.last_modified = last_modified;
 
         WalletTcomb(wallet_clone) // validate
 
