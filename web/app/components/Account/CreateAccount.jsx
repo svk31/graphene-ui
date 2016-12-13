@@ -227,8 +227,14 @@ class CreateAccount extends React.Component {
                 {/* Backup restore option */}
                 <div style={{paddingTop: 40}}>
                     <label style={{textTransform: "none"}}>
-                        <Link to="/existing-account/brainkey">
+                        <Link to="/existing-account">
                             <Translate content="wallet.restore" />
+                        </Link>
+                    </label>
+
+                    <label style={{textTransform: "none"}}>
+                        <Link to="/existing-account/brainkey">
+                            <Translate content="settings.backup_brainkey" />
                         </Link>
                     </label>
                 </div>
@@ -271,8 +277,8 @@ class CreateAccount extends React.Component {
     _renderBackup() {
         return (
             <div>
-                <BackupBrainkey onBackupComplete={this._onBackupDownload}/>
-                {/* <BackupCreate noText downloadCb={this._onBackupDownload}/> */}
+                {/* <BackupBrainkey onBackupComplete={this._onBackupDownload}/> */}
+                <BackupCreate noText downloadCb={this._onBackupDownload}/>
             </div>
         );
     }

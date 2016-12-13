@@ -57,15 +57,15 @@ export default class BitKapital extends React.Component {
                     </span>
                 </div>
 
-                <label>Amount
+                <label><Translate content="exchange.quantity" />
                     <input ref="amount" required id="amount" type="number" min={this.state.min} max={this.state.max}></input>
                 </label>
 
-                <label>IBAN
+                <label><Translate content="gateway.iban" />
                     <input ref="iban" required id="iban" type="text"></input>
                 </label>
 
-                <button className="button" type="submit">Withdraw</button>
+                <button className="button" type="submit"><Translate content="gateway.withdraw_now" /></button>
             </form>
         );
     }
@@ -126,7 +126,7 @@ export default class BitKapital extends React.Component {
 
         // console.log(account.get("name"), "isWhiteListed", isWhiteListed);
 
-        if (!isWhiteListed) {
+        if (false && !isWhiteListed) {
             return (
                 <iframe
                     style={{width: "100%", border: 0, minHeight: 1730}}

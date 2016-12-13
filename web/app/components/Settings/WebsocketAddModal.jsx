@@ -47,7 +47,6 @@ class WebsocketAddModal extends React.Component {
 
     onAddSubmit(e) {
         e.preventDefault();
-        debugger;
         SettingsActions.addWS(this.state.ws);
 
         this.setState({

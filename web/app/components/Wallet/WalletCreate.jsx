@@ -147,6 +147,8 @@ class CreateNewWallet extends Component {
             </div>
         }
 
+        console.log('props', this.props);
+
         return (
             <div>
 
@@ -184,7 +186,7 @@ class CreateNewWallet extends Component {
 
                 <div className="no-overflow">
 
-                    { this.state.custom_brainkey ? (
+                    { !this.props.disableBrainkey && this.state.custom_brainkey ? (
                     <div>
                         <label><Translate content="wallet.brainkey" /></label>
                         <BrainkeyInput tabIndex={4} onChange={this.onBrainkey.bind(this)} errorCallback={(warn) => {
@@ -206,7 +208,7 @@ class CreateNewWallet extends Component {
 
                 </div>
 
-                { ! this.state.custom_brainkey ? (
+                { !this.props.disableBrainkey &&  !this.state.custom_brainkey ? (
                 <div style={{paddingTop: 20}}>
                     <label>
                         <a onClick={this.onCustomBrainkey.bind(this)}>

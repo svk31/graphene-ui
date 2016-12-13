@@ -12,10 +12,12 @@ export default class AccountSettings extends React.Component {
         super();
         this.state = {
             restoreType: 0,
-            types: ["backup", "restore", "delete"],
+            types: ["backup", "backupkey", "restore", "restorekey", "delete"],
             keys: {
-                backup: "settings.backupcreate_brainkey",
-                restore: "settings.backup_brainkey",
+                backup: "settings.backupcreate_backup",
+                backupkey: "settings.backupcreate_brainkey",
+                restore: "settings.backup_backup",
+                restorekey: "settings.backup_brainkey",
                 delete: "wallet.delete_wallet"
             }
         };
@@ -38,6 +40,10 @@ export default class AccountSettings extends React.Component {
 
         switch (types[restoreType]) {
         case "backup":
+            content = <BackupCreate />;
+            break;
+
+        case "backupkey":
             content = <BackupBrainkey />;
             break;
 
@@ -45,7 +51,16 @@ export default class AccountSettings extends React.Component {
             content = (
                 <div>
                     <p style={{maxWidth: "40rem", paddingBottom: 10}}><Translate content="settings.restore_brainkey_text" /></p>
-                    <WalletCreate restoreBrainkey={true} />
+                    <WalletCreate disableBrainkey />
+                </div>
+            );
+            break;
+
+        case "restorekey":
+            content = (
+                <div>
+                    <p style={{maxWidth: "40rem", paddingBottom: 10}}><Translate content="settings.restore_brainkey_text" /></p>
+                    <WalletCreate restoreBrainkey />
                 </div>
             );
             break;

@@ -702,7 +702,8 @@
     "disableChat": "Sohbeti etkinsizleştir",
     "backup_brainkey": "TekAnahtar yedeği ile cüzdan oluştur",
     "backupcreate_brainkey": "TekAnahtar yedeği oluştur",
-    "restore_brainkey_text": "TekAnahtarına sahip olduğunuz eski cüzdanınızı buraya aktarmak için şifrenizi ve TekAnahtarınızı aşağıdaki alana girin."
+    "restore_brainkey_text": "TekAnahtarına sahip olduğunuz eski cüzdanınızı buraya aktarmak için şifrenizi ve TekAnahtarınızı aşağıdaki alana girin.",
+    "restore_bin_success": "Go to the account"
   },
   "footer": {
     "title": "BitKapital",
@@ -988,6 +989,7 @@
     "bitkapital_receive": "Vermiş olduğunuz banka hesabınıza yatacak miktar",
     "bitkapital_text": "Lütfen yatırmak ya da çekmek istediğiniz enstrümanı seçin.",
     "bitkapital_withdraw": "Satılan miktar",
+    "iban": "IBAN",
     "bridge": "Köprü",
     "gateway": "Geçit",
     "symbol": "Sembol",

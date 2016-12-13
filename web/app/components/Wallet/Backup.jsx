@@ -97,10 +97,6 @@ export class BackupRestore extends BackupBaseComponent {
     }
 
     render() {
-        var new_wallet = this.props.wallet.new_wallet
-        var has_new_wallet = this.props.wallet.wallet_names.has(new_wallet)
-        var restored = has_new_wallet
-
         return (
             <div>
                 <Translate style={{textAlign: "left", maxWidth: "30rem"}} component="p" content="wallet.import_backup_choose" />
@@ -140,7 +136,14 @@ class Restore extends BackupBaseComponent {
         if(has_new_wallet)
             return <span>
                 <h5><Translate content="wallet.restore_success" name={new_wallet.toUpperCase()} /></h5>
-                <div>{this.props.children}</div>
+                <div>
+                    <button
+                        className="button outline"
+                        onClick={() => {window.location.href = "/";}}
+                    >
+                        <Translate content="settings.restore_bin_success"></Translate>
+                    </button>        
+                </div>
             </span>
 
         return <span>
@@ -325,6 +328,8 @@ class LastBackupDate extends Component {
         }
         var backup_date = WalletDb.getWallet().backup_date
         var last_modified = WalletDb.getWallet().last_modified
+
+        console.log('last_modified', last_modified.getTime(), 'backup_date', backup_date.getTime())
         var backup_time = backup_date ?
             <h4><Translate content="wallet.last_backup" /> <FormattedDate value={backup_date}/></h4>:
             <Translate style={{paddingTop: 20}} className="facolor-error" component="p" content="wallet.never_backed_up" />
@@ -446,9 +451,10 @@ class DecryptBackup extends BackupBaseComponent {
         var contents = this.props.backup.contents
         decryptWalletBackup(private_key.toWif(), contents).then( wallet_object => {
             this.setState({verified: true})
-            if(this.props.saveWalletObject)
+            if(this.props.saveWalletObject) {
                 BackupStore.setWalletObjct(wallet_object)
-
+                console.log('wallet restored');
+            }
         }).catch( error => {
             console.error("Error verifying wallet " + this.props.backup.name,
                 error, error.stack)

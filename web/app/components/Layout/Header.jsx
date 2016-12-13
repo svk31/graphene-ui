@@ -16,7 +16,7 @@ import WalletUnlockStore from "stores/WalletUnlockStore";
 import WalletUnlockActions from "actions/WalletUnlockActions";
 import WalletManagerStore from "stores/WalletManagerStore";
 import cnames from "classnames";
-import TotalBalanceValue from "../Utility/TotalBalanceValue";
+// import TotalBalanceValue from "../Utility/TotalBalanceValue";
 import Immutable from "immutable";
 import LanguageFlags from "../Utility/LanguageFlags";
 
@@ -158,13 +158,13 @@ class Header extends React.Component {
 
         let myAccounts = AccountStore.getMyAccounts();
 
-        let walletBalance = myAccounts.length ? (
-                            <div className="grp-menu-item" style={{
-                                padding: "18px 0 15px 0",
-                                fontSize: 14
-                            }} >
-                                <TotalBalanceValue.AccountWrapper accounts={myAccounts} inHeader={true}/>
-                            </div>) : null;
+        // let walletBalance = myAccounts.length ? (
+        //                     <div className="grp-menu-item" style={{
+        //                         padding: "18px 0 15px 0",
+        //                         fontSize: 14
+        //                     }} >
+        //                         <TotalBalanceValue.AccountWrapper accounts={myAccounts} inHeader={true}/>
+        //                     </div>) : null;
 
         let headerLogo = (
             <a
@@ -195,7 +195,7 @@ class Header extends React.Component {
 
         let tradeLink = this.props.lastMarket && active.indexOf("market/") === -1 ?
             <a className={cnames({active: active.indexOf("market/") !== -1})} onClick={this._onNavigate.bind(this, `/market/${this.props.lastMarket}`)}><Translate component="span" content="header.exchange" /></a>:
-            <a className={cnames({active: active.indexOf("market/") !== -1})} onClick={this._onNavigate.bind(this, "/market/USD_BTS")}><Translate component="span" content="header.exchange" /></a>;
+            <a className={cnames({active: active.indexOf("market/") !== -1})} onClick={this._onNavigate.bind(this, "/market/OPEN.BTC_KAPITAL")}><Translate component="span" content="header.exchange" /></a>;
 
         // Account selector: Only active inside the exchange
         let accountsDropDown = null;
@@ -286,7 +286,7 @@ class Header extends React.Component {
                 </div>
                 <div className="grid-block show-for-medium shrink">
                     <div className="grp-menu-items-group header-right-menu">
-                        {walletBalance}
+                        {/* walletBalance */}
 
                         <div className="grid-block shrink overflow-visible grp-menu-item" style={{padding: "18px 0px 15px"}}>
                             {accountsDropDown}
