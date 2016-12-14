@@ -126,7 +126,7 @@ export default class BitKapital extends React.Component {
 
         // console.log(account.get("name"), "isWhiteListed", isWhiteListed);
 
-        if (false && !isWhiteListed) {
+        if (!isWhiteListed) {
             return (
                 <iframe
                     style={{width: "100%", border: 0, minHeight: 1730}}
