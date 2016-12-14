@@ -10,7 +10,7 @@ if (__ELECTRON__) {
 class IntlActions {
 
     switchLocale(locale) {
-        if (locale === "en") {
+        if (locale === "en" || locale === "tr") {
             return this.dispatch({locale});
         }
         if (__ELECTRON__) {
