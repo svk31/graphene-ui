@@ -86,7 +86,6 @@ class CreateAccount extends React.Component {
             TransactionConfirmStore.reset();
 
             FetchChain("getAccount", this.state.accountName).then(() => {
-                console.log("onFinishConfirm");
                 this.props.history.pushState(null, `/wallet/backup/create?newAccount=true`);
             });
         }
@@ -96,19 +95,20 @@ class CreateAccount extends React.Component {
         let refcode = this.refs.refcode ? this.refs.refcode.value() : null;
         WalletUnlockActions.unlock().then(() => {
             this.setState({loading: true});
-            AccountActions.createAccount(name, this.state.registrar_account, this.state.registrar_account, 0, refcode).then(() => {
+            AccountActions.createAccount(name, this.state.registrar_account, this.state.registrar_account, 0, refcode)
+            .then(() => {
                 // User registering his own account
                 if(this.state.registrar_account) {
                     this.setState({loading: false});
                     TransactionConfirmStore.listen(this.onFinishConfirm);
                 } else { // Account registered by the faucet
-                    console.log("account registed by faucet");
                     // this.props.history.pushState(null, `/wallet/backup/create?newAccount=true`);
-                    this.setState({
-                        step: 2
+                    FetchChain("getAccount", name).then((acc) => {
+                        this.setState({
+                            step: 2
+                        });
                     });
                     // this.props.history.pushState(null, `/account/${name}/overview`);
-
                 }
             }).catch(error => {
                 console.log("ERROR AccountActions.createAccount", error);
@@ -287,8 +287,9 @@ class CreateAccount extends React.Component {
         // this.setState({
         //     step: 3
         // });
-
-        this.props.history.pushState(null, "/market/OPEN.BTC_KAPITAL");
+        setTimeout(() => {
+            this.props.history.pushState(null, "/market/OPEN.BTC_KAPITAL");
+        }, 1000);
     }
 
     _renderBackupText() {

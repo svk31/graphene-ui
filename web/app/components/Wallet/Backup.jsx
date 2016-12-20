@@ -142,7 +142,7 @@ class Restore extends BackupBaseComponent {
                         onClick={() => {window.location.href = "/";}}
                     >
                         <Translate content="settings.restore_bin_success"></Translate>
-                    </button>        
+                    </button>
                 </div>
             </span>
 
@@ -329,12 +329,11 @@ class LastBackupDate extends Component {
         var backup_date = WalletDb.getWallet().backup_date
         var last_modified = WalletDb.getWallet().last_modified
 
-        console.log('last_modified', last_modified.getTime(), 'backup_date', backup_date.getTime())
         var backup_time = backup_date ?
             <h4><Translate content="wallet.last_backup" /> <FormattedDate value={backup_date}/></h4>:
             <Translate style={{paddingTop: 20}} className="facolor-error" component="p" content="wallet.never_backed_up" />
         var needs_backup = null
-        if( backup_date ) {
+        if( backup_date && last_modified ) {
             needs_backup = last_modified.getTime() > backup_date.getTime() ?
                 <h4 className="facolor-error"><Translate content="wallet.need_backup" /></h4>:
                 <h4 className="success"><Translate content="wallet.noneed_backup" /></h4>

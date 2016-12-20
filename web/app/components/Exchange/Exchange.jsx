@@ -1074,7 +1074,7 @@ class Exchange extends React.Component {
 
         let balances = {};
 
-        currentAccount.get("balances").filter((balance, id) => {
+        currentAccount.get("balances", []).filter((balance, id) => {
             return (["1.3.0", quote.get("id"), base.get("id")].indexOf(id) >= 0);
         }).forEach((balance, id) => {
             let balanceObject = ChainStore.getObject(balance);
@@ -1155,9 +1155,10 @@ class Exchange extends React.Component {
             baseSymbol = base.get("symbol");
             quoteSymbol = quote.get("symbol");
 
-            accountBalance = currentAccount.get("balances").toJS();
+            accountBalance = currentAccount.get("balances");
 
             if (accountBalance) {
+                accountBalance = accountBalance.toJS();
                 for (let id in accountBalance) {
                     if (id === quote.get("id")) {
                         quoteBalance = accountBalance[id];
